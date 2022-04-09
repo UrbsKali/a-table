@@ -1,34 +1,39 @@
 <template>
   <div class="card">
       <div class="card_header">
-        <i
-        class="bx"
-        :class="icon || 'bx-square-rounded'"
-        /> 
-          <span class="title">{{ title }}</span>
-
-          
+        <i v-if="icon_is_bx" class="bx" :class="icon || 'bx-square-rounded'" />
+        <span v-else>{{icon}}</span> 
+        <span class="title">{{ title }}</span>          
       </div>
       <div class="card_content">
-
+        <p>{{description}}</p>
       </div>
   </div>
 </template>
 
 <script>
 export default {
+  name: "Card",
   props: {
+    icon_is_bx: {
+      type: Boolean,
+      default: true,
+      required: true
+    },
     icon: {
       type: String,
       default: '',
+      required: true
     },
     title: {
       type: String,
-      default: 'Oyé',
+      default: '',
+      required: true
     },
     description: {
       type: String,
-      default: 'Oya',
+      default: '',
+      required: true
     }
   },
 }
@@ -44,6 +49,7 @@ export default {
     font-weight: 800;
 }
 .card {
+  margin: 1em;
   background-color: #11101d;
   color: #fff;
   border-radius: 16px;
@@ -64,6 +70,7 @@ export default {
 .card_content {
     display: flex;
     flex-direction: column;
+    font-size: 15px;
     gap: 12px;
     padding: 24px 0 16px 0;
 }

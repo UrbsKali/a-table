@@ -1,6 +1,6 @@
 <template>
     <Sidebar />
-    <Card :icon="bx-lemon" :title="Broda" :description="Oya" />
+    <Card :icon_is_bx="false" :icon="'📜'" :title="'Broda'" :description="'Oya'" />
 </template>
 
 <script>
@@ -10,11 +10,15 @@ export default {
     name: 'component.vue',
     components: {Sidebar, Card},
     data() {
-      return {}
+      return {
+
+      }
     }
   }
 </script>
 
 <style>
-
+body{
+  background-color: #272543;
+}
 </style>
